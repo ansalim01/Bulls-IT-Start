@@ -23,7 +23,7 @@ const commentDate = formShape.querySelector('[name="shape__date"]');
 const shapeErrorName = document.getElementById('shape__error-name');
 const shapeErrorText = document.getElementById('shape__error-text');
 
-/*влидация*/
+/*валидация*/
 
 let numErrorName = 1;
 commentName.addEventListener('input', () => {
