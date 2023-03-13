@@ -184,6 +184,7 @@ input {
 }
 .media__footer {
   padding: 15px 20px;
+  position: relative;
 }
 /*лайк----------------------------------------*/
 .btn-like {
@@ -241,4 +242,37 @@ input {
 .btn-like-active:hover.btn-like::before,
 .btn-like-active:hover.btn-like::after {
   background-color: rgb(250, 42, 42);
+}
+
+/*-------кнопка закрыть -----------------*/
+.btn-close {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 32px;
+  height: 32px;
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.btn-close:hover {
+  opacity: 1;
+}
+
+.btn-close:before,
+.btn-close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 2px;
+  background-color: #333;
+}
+
+.btn-close:before {
+  transform: rotate(45deg);
+}
+
+.btn-close:after {
+  transform: rotate(-45deg);
 }/*# sourceMappingURL=style.css.map */
