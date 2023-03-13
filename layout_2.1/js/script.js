@@ -44,15 +44,17 @@ function piginationCommentName() {
     }
 }
 function piginationCommentText() {
-    commentText.classList.add('_form-error')
-    shapeErrorText.innerHTML = 'пусто както'   /*---надо норм текст----------------------------*/
-    numErrorText === 0 ? numErrorText = 1 : '';
-
-    if (commentText.value.trim().length > 0) {
-        commentText.classList.remove('_form-error')
+    if (commentText.value.trim().length <= 0) {
+        commentText.classList.add('_form-error')
+        shapeErrorText.innerHTML = 'пусто както'   /*---надо норм текст----------------------------*/
+        numErrorText === 0 ? numErrorText = 1 : '';
+    } else {
+        commentText.classList.remove('_form-error');
         shapeErrorText.innerHTML = '';
         numErrorText = 0;
     }
+
+
 }
 
 
@@ -62,7 +64,7 @@ shapeButton.addEventListener('click', (event) => {
     event.preventDefault();
     piginationCommentName()
     piginationCommentText()
-    if (numErrorName !== 0 && numErrorText !== 0) return
+    if (numErrorName === 1 || numErrorText === 1) return
 
 
     let comment = {
@@ -70,7 +72,7 @@ shapeButton.addEventListener('click', (event) => {
         text: commentText.value,
         date: commentDate.value,
 
-        // Math.floor(Date.now() / 1000)
+
     }
     commentName.value = '';
     commentText.value = '';
@@ -81,15 +83,29 @@ shapeButton.addEventListener('click', (event) => {
 
 
 function addComment(com) {
+
     let date = new Date();
-    let today = `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? `0${date.getMonth()}`
-        : date.getMonth()}-${date.getDate() < 10 ? `0${date.getDate()}`
+    let today = `${date.getFullYear()}-${date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}`
+        : date.getMonth() + 1}-${date.getDate() < 10 ? `0${date.getDate()}`
             : date.getDate()}`;
 
     let time = `${date.getHours() < 10 ? `0${date.getHours()}`
         : date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}`
             : date.getMinutes()}`;
-    console.log(time);
+
+
+    let textDateDifference = null;
+    let dateSelected = new Date(com.date);
+    if (dateSelected.getFullYear() === date.getFullYear() && dateSelected.getMonth() === date.getMonth()) {
+        if (dateSelected.getDate() === date.getDate()) {
+            textDateDifference = 'Сегодня';
+        } else if (dateSelected.getDate() + 1 === date.getDate()) {
+            textDateDifference = 'Вчера';
+        }
+    }
+
+
+
 
     let commentList = document.querySelector('.comment__list');
     commentList.insertAdjacentHTML('beforeend', `<li class="media">
@@ -97,7 +113,7 @@ function addComment(com) {
         <div class="media__heading">
             <div class="media__name">${com.name}</div>
             <div class="media__metadate">
-                <span class="media__date">${com.date ? com.date : today}, ${time}</span>
+                <span class="media__date">${textDateDifference ? textDateDifference : com.date ? com.date : today}, ${time}</span>
                 
             </div>
         </div>
