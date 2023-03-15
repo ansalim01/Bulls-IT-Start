@@ -1,19 +1,5 @@
 'use strict'
 
-
-///---лайк-сердце---close
-const mainComment = document.querySelector('.comment')
-
-mainComment.addEventListener('click', (e) => {
-    if (e.target.closest('.btn-like')) {
-        e.target.classList.toggle('btn-like-active')
-    } else if (e.target.closest('.btn-close')) {
-        e.target.closest('.media').remove();
-    }
-})
-
-
-////
 const formShape = document.querySelector('.shape__form');
 const shapeButton = document.querySelector('.shape__button');
 
@@ -25,12 +11,12 @@ const shapeErrorText = document.getElementById('shape__error-text');
 
 /*валидация*/
 
-let numErrorName = 1;
+let numErrorName = false;
 commentName.addEventListener('input', () => {
     piginationCommentName()
 
 })
-let numErrorText = 1;
+let numErrorText = false;
 commentText.addEventListener('input', () => {
     piginationCommentText()
 })
@@ -40,22 +26,22 @@ function piginationCommentName() {
     if (commentName.value.trim().length < 4) {
         commentName.classList.add('_form-error')
         shapeErrorName.innerHTML = 'Имя должно быть больше 3 символа'
-        numErrorName === 0 ? numErrorName = 1 : '';
+        numErrorName === true ? numErrorName = false : '';
     } else {
         commentName.classList.remove('_form-error')
         shapeErrorName.innerHTML = '';
-        numErrorName = 0;
+        numErrorName = true;
     }
 }
 function piginationCommentText() {
     if (commentText.value.trim().length <= 0) {
         commentText.classList.add('_form-error')
         shapeErrorText.innerHTML = 'Нельзя оставлять пустой комментарий'
-        numErrorText === 0 ? numErrorText = 1 : '';
+        numErrorText === true ? numErrorText = false : '';
     } else {
         commentText.classList.remove('_form-error');
         shapeErrorText.innerHTML = '';
-        numErrorText = 0;
+        numErrorText = true;
     }
 }
 
@@ -66,7 +52,7 @@ shapeButton.addEventListener('click', (event) => {
     event.preventDefault();
     piginationCommentName()
     piginationCommentText()
-    if (numErrorName === 1 || numErrorText === 1) return
+    if (numErrorName === false || numErrorText === false) return
 
     let comment = {
         name: commentName.value,
@@ -81,14 +67,13 @@ shapeButton.addEventListener('click', (event) => {
 });
 
 
+
 function addComment(com) {
     ///добавление 0 в числа меньше 10
     let date = new Date();
-
     let time = `${date.getHours() < 10 ? `0${date.getHours()}`
         : date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}`
             : date.getMinutes()}`;
-
 
     //время разница между 'сегодня'и 'ук.днём'
     let textDateDifference = null;
@@ -96,12 +81,11 @@ function addComment(com) {
     if (!com.date) {
         textDateDifference = 'Сегодня';
     }
-    if (dateSelected.getFullYear() === date.getFullYear() && dateSelected.getMonth() === date.getMonth()) {
-        if (dateSelected.getDate() === date.getDate()) {
-            textDateDifference = 'Сегодня';
-        } else if (dateSelected.getDate() + 1 === date.getDate()) {
-            textDateDifference = 'Вчера';
-        }
+
+    if ((dateSelected.getTime() / 1000 / 3600 / 24) === Math.floor(date.getTime() / 1000 / 3600 / 24)) {
+        textDateDifference = 'Сегодня';
+    } else if ((dateSelected.getTime() / 1000 / 3600 / 24) + 1 === Math.floor(date.getTime() / 1000 / 3600 / 24)) {
+        textDateDifference = 'Вчера';
     }
 
     //добавление в html 
@@ -127,5 +111,16 @@ function addComment(com) {
     </li>`)
 }
 
+///---лайк-сердце---close
+const mainComment = document.querySelector('.comment')
+
+mainComment.addEventListener('click', (e) => {
+    if (e.target.closest('.btn-like')) {
+        e.target.classList.toggle('btn-like-active')
+    } else if (e.target.closest('.btn-close')) {
+        e.target.closest('.media').remove();
+    }
+})
 
 
+////

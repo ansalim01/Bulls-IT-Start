@@ -22,7 +22,7 @@ shapeButton.addEventListener('click', function _callee(e) {
       }
     }
   });
-});
+}); //получени данных
 
 function gettingData() {
   var inputValue, response, data;
@@ -81,7 +81,15 @@ function gettingData() {
       }
     }
   }, null, null, [[4, 19]]);
-}
+} //получени даты
+
+
+function createsStringUpdated(updated) {
+  var date = new Date(updated);
+  var strDate = "".concat(date.getFullYear(), "-").concat(date.getMonth() + 1 > 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1), "-").concat(date.getDate() > 10 ? date.getDate() : '0' + date.getDate());
+  return strDate;
+} //добавление в html 
+
 
 function addRepository(data) {
   var lengthRepository = data.items.length;
@@ -98,10 +106,4 @@ function addRepository(data) {
     var updated = createsStringUpdated(itemsRepository[i].updated_at);
     repositoryList.insertAdjacentHTML('beforeend', "<li class=\"media\">\n        <div class=\"media__body\">\n            <div class=\"media__heading\">\n           \n                <a class=\"media__name\" href=\"".concat(itemsRepository[i].owner.html_url, "\" target=\"_blank\">\u0410\u0432\u0442\u043E\u0440: ").concat(itemsRepository[i].owner.login, " </a>\n                <a class=\"media__metadate\" href=\"").concat(itemsRepository[i].owner.html_url, "\" target=\"_blank\">\n                    <span class=\"media__date\">\u041E\u0431\u043D\u043E\u0432\u043B\u0435\u043D\u043D\u044B\u0439: ").concat(updated, "</span>\n                </a>\n            </div>\n            \n            <a class=\"media__repository\" href=\"").concat(itemsRepository[i].html_url, "\" target=\"_blank\">\n            \u0420\u0435\u043F\u043E\u0437\u0438\u0442\u043E\u0440\u0438\u0439 :\n                ").concat(itemsRepository[i].name, "\n            </a>\n        </div>\n    </li>"));
   }
-}
-
-function createsStringUpdated(updated) {
-  var date = new Date(updated);
-  var strDate = "".concat(date.getFullYear(), "-").concat(date.getMonth() + 1 > 10 ? date.getMonth() + 1 : '0' + (date.getMonth() + 1), "-").concat(date.getDate() > 10 ? date.getDate() : '0' + date.getDate());
-  return strDate;
 }

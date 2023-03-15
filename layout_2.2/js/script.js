@@ -1,7 +1,5 @@
 'use strict'
 
-
-
 const formShape = document.querySelector('.shape__form');
 const shapeButton = document.querySelector('.shape__button');
 const shapeNameRepository = document.querySelector('.shape__name-repository');
@@ -15,6 +13,9 @@ shapeButton.addEventListener('click', async (e) => {
     e.preventDefault();
     gettingData();
 })
+
+//получени данных
+
 async function gettingData() {
     const inputValue = shapeNameRepository.value
 
@@ -36,7 +37,16 @@ async function gettingData() {
         console.log(err);
     }
 }
+//получени даты
+function createsStringUpdated(updated) {
+    const date = new Date(updated)
+    const strDate = `${date.getFullYear()}-${(date.getMonth() + 1) > 10 ? (date.getMonth() + 1)
+        : '0' + (date.getMonth() + 1)}-${date.getDate() > 10 ? date.getDate()
+            : '0' + date.getDate()}`
+    return strDate;
+}
 
+//добавление в html 
 
 function addRepository(data) {
     const lengthRepository = data.items.length;
@@ -70,10 +80,3 @@ function addRepository(data) {
     }
 }
 
-function createsStringUpdated(updated) {
-    const date = new Date(updated)
-    const strDate = `${date.getFullYear()}-${(date.getMonth() + 1) > 10 ? (date.getMonth() + 1)
-        : '0' + (date.getMonth() + 1)}-${date.getDate() > 10 ? date.getDate()
-            : '0' + date.getDate()}`
-    return strDate;
-}
