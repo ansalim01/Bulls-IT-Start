@@ -12,13 +12,35 @@
 <body>
     <div class="wrapper">
         <div class="wrapper__container _container">
-            <form action="">
-                <input type="text">
-                <button>Поиск</button>
-            </form>
+            <main class="main">
 
+                <form class="shape__form" action="">
+                    <label class="shape__name-label" for="name">
+                        <span class="shape__error" id="shape__error-name"></span>
+                    </label>
+                    <input name="name" class="shape__name-repository" type="text" placeholder="Поиск">
+                    <button type="submit" class="shape__button">Поиск</button>
+                </form>
+
+                <div class="repository">
+                    <ul class="repository__list">
+                        <!-- <li class="media">
+                            <div class="media__body">
+                                <div class="media__heading">
+                                    <a class="media__name" href="" target="_blank">Дима</a>
+                                    <a class="media__metadate" href="" target="_blank">
+                                        <span class="media__date">16 09 2015, 13:43</span>
+                                    </a>
+                                </div>
+                                <a class="media__repository" href="" target="_blank">
+                                    Lorem, ipsum dolor sit
+                                </a>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </main>
         </div>
-
     </div>
     <script src="./js/script.js"></script>
 </body>

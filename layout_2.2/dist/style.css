@@ -103,7 +103,72 @@ h6 {
 }
 
 ._container {
-  max-width: 1110px;
+  max-width: 580px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+input {
+  border: 2px solid #787878;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
+  color: #787878;
+  padding-left: 15px;
+}
+
+button {
+  margin-left: 15px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 16px;
+  color: #FFFFFF;
+  background: #3B71CA;
+  width: 180px;
+  padding: 14px 0;
+  border-radius: 15px;
+}
+
+.__error {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.shape__form {
+  margin-bottom: 60px;
+}
+
+.media:not(:last-child) {
+  margin-bottom: 15px;
+}
+.media__body {
+  border: 2px solid #3B71CA;
+  border-radius: 5px;
+}
+.media__heading {
+  background-color: #3B71CA;
+  padding: 15px 10px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.media__name {
+  display: inline-block;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.media__metadate {
+  display: inline-block;
+  color: #fff;
+}
+.media__repository {
+  padding: 15px 10px;
+  display: inline-block;
+  color: #000;
 }
