@@ -53,7 +53,7 @@ function addRepository(data) {
     const itemsRepository = data.items;
 
     if (lengthRepository === 0) {
-        repositoryList.innerHTML = '<div class="__error">Не нашёл</div>';
+        repositoryList.innerHTML = '<div class="__error">Ничего не найдено</div>';
         return
     }
 
