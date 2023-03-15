@@ -154,31 +154,6 @@ textarea {
     padding: 0 30px;
     // .comment__body
 
-    &__body {}
-
-    // .comment__row
-
-    &__row {}
-
-    // .comment__items
-
-    &__items {}
-
-    // .comment__item
-
-    &__item {}
-
-    // .comment__name
-
-    &__name {}
-
-    // .comment__text
-
-    &__text {}
-
-    // .comment__date
-
-    &__date {}
 }
 
 
@@ -201,7 +176,6 @@ textarea {
         flex-direction: column;
 
     }
-
 
     // .shape__name
 
@@ -256,11 +230,9 @@ textarea {
 
     // .media__body
 
-
     &__body {
         border: 2px solid #3B71CA;
         border-radius: 5px;
-
     }
 
     // .media__heading
@@ -277,10 +249,6 @@ textarea {
         margin-bottom: 5px;
     }
 
-    &__metadate {}
-
-    &__date {}
-
     // .media__text
 
     &__text {
@@ -294,37 +262,29 @@ textarea {
         position: relative;
     }
 
-    // .media__bth
 
-    &__bth {}
 }
-
-
-.btn {}
-
-
-
 
 /*лайк----------------------------------------*/
 
 .btn-like {
-    width: 20px; // ширина
-    height: 20px; // высота
-    background-color: #808080; // цвет
+    width: 20px;
+    height: 20px;
+    background-color: #808080;
     transform: rotate(45deg);
-    position: relative; // установим родителя
+    position: relative;
 
     cursor: pointer;
 }
 
 .btn-like::before,
 .btn-like::after {
-    content: ''; // обязательное свойство
+    content: '';
     display: block;
     width: 20px;
     height: 20px;
     background-color: #808080;
-    border-radius: 50%; // закругление радиуса
+    border-radius: 50%;
     position: absolute;
 }
 

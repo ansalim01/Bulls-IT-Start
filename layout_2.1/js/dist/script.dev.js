@@ -7,8 +7,6 @@ var commentText = formShape.querySelector('[name="shape__text"]');
 var commentDate = formShape.querySelector('[name="shape__date"]');
 var shapeErrorName = document.getElementById('shape__error-name');
 var shapeErrorText = document.getElementById('shape__error-text');
-/*валидация*/
-
 var numErrorName = false;
 commentName.addEventListener('input', function () {
   piginationCommentName();
@@ -17,6 +15,7 @@ var numErrorText = false;
 commentText.addEventListener('input', function () {
   piginationCommentText();
 });
+/*валидация*/
 
 function piginationCommentName() {
   if (commentName.value.trim().length < 4) {

@@ -3,11 +3,11 @@
 var formShape = document.querySelector('.shape__form');
 var shapeButton = document.querySelector('.shape__button');
 var shapeNameRepository = document.querySelector('.shape__name-repository');
-var repositoryList = document.querySelector('.repository__list');
-document.addEventListener('keyup', function (e) {
-  if (e.code != 'Enter') return;
-  gettingData();
-});
+var repositoryList = document.querySelector('.repository__list'); // document.addEventListener('keyup', (e) => {
+//     if (e.code != 'Enter') return
+//     gettingData()
+// })
+
 shapeButton.addEventListener('click', function _callee(e) {
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {

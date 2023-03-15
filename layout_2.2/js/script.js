@@ -5,10 +5,10 @@ const shapeButton = document.querySelector('.shape__button');
 const shapeNameRepository = document.querySelector('.shape__name-repository');
 const repositoryList = document.querySelector('.repository__list');
 
-document.addEventListener('keyup', (e) => {
-    if (e.code != 'Enter') return
-    gettingData()
-})
+// document.addEventListener('keyup', (e) => {
+//     if (e.code != 'Enter') return
+//     gettingData()
+// })
 shapeButton.addEventListener('click', async (e) => {
     e.preventDefault();
     gettingData();

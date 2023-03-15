@@ -9,7 +9,6 @@ const commentDate = formShape.querySelector('[name="shape__date"]');
 const shapeErrorName = document.getElementById('shape__error-name');
 const shapeErrorText = document.getElementById('shape__error-text');
 
-/*валидация*/
 
 let numErrorName = false;
 commentName.addEventListener('input', () => {
@@ -22,6 +21,7 @@ commentText.addEventListener('input', () => {
 })
 
 
+/*валидация*/
 function piginationCommentName() {
     if (commentName.value.trim().length < 4) {
         commentName.classList.add('_form-error')
@@ -44,7 +44,6 @@ function piginationCommentText() {
         numErrorText = true;
     }
 }
-
 
 
 // submit
@@ -121,6 +120,5 @@ mainComment.addEventListener('click', (e) => {
         e.target.closest('.media').remove();
     }
 })
-
 
 ////

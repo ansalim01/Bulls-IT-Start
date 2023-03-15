@@ -144,6 +144,7 @@ textarea {
   width: 100%;
   padding: 0 30px;
 }
+
 ._form-error {
   border-color: red;
 }
@@ -200,6 +201,7 @@ textarea {
   padding: 15px 20px;
   position: relative;
 }
+
 /*лайк----------------------------------------*/
 .btn-like {
   width: 20px;
