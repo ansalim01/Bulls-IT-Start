@@ -110,13 +110,8 @@ h6 {
     padding: 0 10px;
 }
 
-
-
 .main {
     display: flex;
-
-
-
 }
 
 h1 {
@@ -149,11 +144,8 @@ textarea {
 
 .comment {
     flex: 0 0 50%;
-
     width: 100%;
     padding: 0 30px;
-    // .comment__body
-
 }
 
 
@@ -166,10 +158,6 @@ textarea {
     width: 100%;
     padding: 0 30px;
 
-    // .shape__body
-
-    &__body {}
-
     &__form {
         display: flex;
         justify-content: center;
@@ -177,27 +165,12 @@ textarea {
 
     }
 
-    // .shape__name
-
-    &__name {}
-
     &__error {
-
         color: red;
         float: right;
-
     }
 
-    // .shape__text
-
-    &__text {}
-
-    // .shape__time
-
-    &__time {}
-
     &__button {
-
         margin: 0 auto;
         margin-top: 30px;
         font-style: normal;
@@ -211,17 +184,7 @@ textarea {
     }
 }
 
-
 /* коменты-------------------------------------------------*/
-
-.comments {}
-
-.comment {
-
-    // .comment__list
-
-    &__list {}
-}
 
 .media {
     &:not(:last-child) {
@@ -261,8 +224,6 @@ textarea {
         padding: 15px 20px;
         position: relative;
     }
-
-
 }
 
 /*лайк----------------------------------------*/
@@ -273,7 +234,6 @@ textarea {
     background-color: #808080;
     transform: rotate(45deg);
     position: relative;
-
     cursor: pointer;
 }
 
@@ -328,7 +288,6 @@ textarea {
 
 
 /*-------кнопка закрыть -----------------*/
-.btn-close {}
 
 .btn-close {
     position: absolute;

@@ -5,11 +5,7 @@ const shapeButton = document.querySelector('.shape__button');
 const shapeNameRepository = document.querySelector('.shape__name-repository');
 const repositoryList = document.querySelector('.repository__list');
 
-// document.addEventListener('keyup', (e) => {
-//     if (e.code != 'Enter') return
-//     gettingData()
-// })
-shapeButton.addEventListener('click', async (e) => {
+shapeButton.addEventListener('click', (e) => {
     e.preventDefault();
     gettingData();
 })
@@ -25,10 +21,8 @@ async function gettingData() {
     }
     try {
         let response = await fetch(`https://api.github.com/search/repositories?q=${inputValue}`);
-        console.log(response);
         if (response.ok) {
             const data = await response.json()
-
             addRepository(data)
         } else {
             alert('есть проблемы');
@@ -64,13 +58,11 @@ function addRepository(data) {
         repositoryList.insertAdjacentHTML('beforeend', `<li class="media">
         <div class="media__body">
             <div class="media__heading">
-           
                 <a class="media__name" href="${itemsRepository[i].owner.html_url}" target="_blank">Автор: ${itemsRepository[i].owner.login} </a>
                 <a class="media__metadate" href="${itemsRepository[i].owner.html_url}" target="_blank">
                     <span class="media__date">Обновленный: ${updated}</span>
                 </a>
             </div>
-            
             <a class="media__repository" href="${itemsRepository[i].html_url}" target="_blank">
             Репозиторий :
                 ${itemsRepository[i].name}
